@@ -1,0 +1,388 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.demo { 
+  background-repeat: no-repeat;
+  height: 700px;
+  padding-left: 4%;
+  background-size: cover;
+}
+
+.bottom {
+  text-align: left;
+  padding-top: 120px;
+  color: white;
+}
+.btn{
+  text-align: center;
+  color: white !important;
+  font: normal normal bold 14px/21px Poppins;
+  background: transparent;
+  padding: 11px;
+  border: 1px solid !important;
+}
+
+
+.second{
+  text-align:left;
+  padding-left: 15%;
+  background-image: url(https://i.pinimg.com/736x/ef/f7/bd/eff7bd592b1d2a878d0b47b1f908f140.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 0px;
+  margin-bottom: -19px;
+  padding-top: 80px;
+}
+
+.sec{
+  color: red;
+  margin-top: -10px;
+}
+
+.sec1{
+  font-size: large;
+}
+
+.third{
+  background-color: #D1332E;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding-top: 100px;
+}
+
+
+.grid-item1{
+  color: white;
+  text-align: left;
+  padding-left: 30px;
+}
+
+.grid-item2{
+  color: white;
+}
+
+.grid-item3{
+  color: white;
+}
+
+.fourth{
+  display: grid;
+  grid-template-columns: auto auto;
+
+}
+
+.grid-item4{
+  text-align:left;
+  padding-left: auto;
+}
+
+.grid-header{
+  color: red;
+}
+
+.grid-item5{
+  display:block;
+  height: fit-content;
+  width: fit-content;
+}
+
+
+.kg{
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  align-items:flex-end !important;
+}
+
+
+.fifth{
+  padding-left: 100px;
+  padding-right: 50px;
+  background-color: #F9F7F2 !important;
+}
+
+.sixth{
+  background-image: url(https://cdn.shopify.com/s/files/1/0823/0287/files/solar-cells_500x333.jpg?v=1508251730);
+  background-repeat: no-repeat;
+  height: 371px;
+  background-size: cover;
+  text-align: center;
+  color: #ffffff;
+}
+
+.btn4{
+  text-align: center;
+  color: white;
+  background: transparent;
+  font: normal normal bold 14px/21px Poppins;
+  border: 1px solid;
+  font-style: bold;
+  font-size: medium;
+  padding: 10px;
+}
+
+.seventh {
+  background-color: #5d5d5d;
+  display: flex; 
+  flex-wrap: wrap;
+}
+
+.leftbottom {
+  color: #bcbcbc;
+  padding-left: 20px;
+  margin: 10px;
+}
+
+.rightbottom {
+  color: #bcbcbc;
+  float: right;
+  padding-left: 50px;
+}
+
+.rightbottom1{
+  color: #bcbcbc;
+  padding: 0px;  
+}
+
+.sevenths{
+  flex: 1 1 33%;
+  margin: 10px;
+}
+
+.row{
+  margin-right: 0 !important
+}
+.up{
+  margin-bottom: -50px;
+  position: absolute;
+  z-index: 9999;
+}
+
+.btn9{
+  color: red;
+  font-weight:bolder;
+  background: transparent;
+  border : 0px solid;
+  font-size:30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  float: inline-end;
+}
+
+li{
+  background-color: #EFEFEF;
+  
+  border-radius: 15px;
+  padding: 5px;
+  margin-left: 15px;
+  text-align: center;
+}
+
+li:hover{
+  background: red;
+  border: 1px solid red;
+  border-radius: 15px;
+  padding:5px 9px !important;
+  color: white !important;
+  text-align: center;
+
+  
+}
+
+
+.space{
+  text-decoration: none;
+  color: #888888;
+}
+
+.space :hover{
+  color : white !important;
+}
+
+
+.dina{
+  font-weight:bold ;
+  color:red; 
+  text-decoration:none; 
+  border: none; 
+  background:transparent;
+  padding-left: 50px !important;
+}
+
+
+.nike{
+  padding:0 15px;
+}
+
+.add{
+  color:white; 
+  font-weight:bold;
+  text-decoration: none !important; 
+  margin-top:8px; 
+  padding-right:35px
+}
+
+.mul{
+  font-weight:bold !important; 
+  color:red !important; 
+  text-decoration:none !important; 
+  border: none !important; 
+  background:transparent !important;
+  font-size: 20px;
+}
+
+
+.Quo{
+  color:white !important; 
+  font-weight:bold !important;
+}
+
+.exd{
+  margin-bottom:-60px !important; 
+  z-index:9 !important;
+}
+
+.pho{
+   color:red !important; 
+   font-weight:bold !important; 
+   margin-left:50px !important;
+}
+
+.pho1{
+  justify-content:flex-end;
+}
+
+.vip{
+  color:white !important; 
+  font-weight:bold !important; 
+  padding-left:25px !important; 
+  padding-right:25px !important;
+}
+
+.img-responsive{
+  height:100%; 
+  aspect-ratio:5/4;
+}
+
+.came{
+  padding:51px 0;
+}
+
+.came1{
+  padding-left:9% !important;
+}
+
+.came2{
+  display:flex; 
+  justify-content:flex-start; 
+  align-items:center;
+}
+
+.came3{
+  margin:10px;
+}
+
+.dina1{
+  margin-left: -60px !important;
+  color: #5D5D5D !important;
+  background: transparent !important;
+  border: none !important;
+  border: 1px solid white;
+}
+
+
+.dina2{
+  margin-left:-20px !important;
+  margin-right: -20px !important;
+}
+
+.sam{
+  border: none;
+  background: transparent;
+  color: #5D5D5D;
+}
+
+.dip{
+  padding-left: -60px;
+  border: 1px solid red;
+  margin-left: 40px;
+  margin-right: 120px;
+  color: #969292 !important;
+}
+
+
+.pav{
+  padding-left:50px;
+}
+
+.man{
+  display: flex;
+  text-align:center;
+  justify-content: flex-end;
+  margin-right: 120px;
+  color: red;
+}
+
+.light{
+  display: flex;
+}
+
+.ani{
+  text-decoration:none; 
+  color:#5d5d5d; 
+  font-weight:bold; 
+  font-size:20px;
+}
+
+
+.fan{
+  object-fit:cover;
+  height:100%;
+  width:100%;
+}
+
+ .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: red !important;
+  color: white !important;
+  border-radius: 0%;
+}
+
+

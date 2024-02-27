@@ -1,0 +1,72 @@
+.accordion-button:not(.collapsed) {
+  color: white !important;
+  background-color:red !important;
+  box-shadow: inset 0px  red !important ;
+}
+
+.accordion-button::after{
+    content: none !important;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed{
+    background-color:red !important;
+    color: white !important;
+}
+
+.container-fluid {
+    /*background-color:red !important;*/ 
+    margin-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.accordion-item{
+    display: block !important;
+    border: 1px solid red !important;
+}
+
+.accordion-button{
+    display: block !important;
+}
+
+.accordion-button:focus {
+ 
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 0%) !important;
+
+}
+
+.jk{
+    background-color:red !important;
+}
+
+.car{
+    background-color: red; 
+    color: white !important;
+}
+
+.pal{
+    background-color: red; 
+    text-decoration:none; 
+    color: white;
+}
+
+.pal1{
+    background-color:red; 
+    color:white; 
+    border-top: 2px solid;
+}
+
+.car1{
+    background-color: red; 
+    color: white !important; 
+    display:block !important;
+}
+
+.car2{
+    background-color: red; 
+    color: white !important;
+}
+
+.par{
+    background-color: red;
+}
