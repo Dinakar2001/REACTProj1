@@ -174,16 +174,18 @@
   color: #bcbcbc;
   float: right;
   padding-left: 50px;
+  padding-top: 15px;
 }
 
 .rightbottom1{
   color: #bcbcbc;
   padding: 0px;  
+  padding-top: 15px;
 }
 
 .sevenths{
   flex: 1 1 33%;
-  margin: 10px;
+  padding-top: 10px;
 }
 
 .row{
@@ -205,6 +207,7 @@
   justify-content: flex-end;
   align-items: flex-end;
   float: inline-end;
+  padding-right: 35px;
 }
 
 li{

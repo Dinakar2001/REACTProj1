@@ -61,8 +61,7 @@ export default function About(props) {
                               </Accordion.Header>
                               <Accordion.Body className='pal1'>
                                   <p>Trained Professionals<br></br>
-                                  Hassle Free Service</p>
-                                  <p><br></br></p>
+                                  Hassle Free Service<br></br><br></br><br></br></p>
                                   <br></br><br></br><br></br>  
                                   <p>Find Out More</p>
                                   <br></br><br></br>

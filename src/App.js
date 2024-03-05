@@ -11,12 +11,13 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import About from "./components/About";
 import Card from "react-bootstrap/Card";
-import { useState } from "react";
+import React, { useState } from "react";
 import Tab from "react-bootstrap/Tab";
 import minus from "./assets/image/minus.png";
 import plus from "./assets/image/plus.png";
 import LED from "./assets/image/LED.png";
 import Stepper from "react-stepper-horizontal";
+import Chart from "react-apexcharts";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -230,6 +231,7 @@ function App() {
                                   width: "10rem",
                                   alignItems: "center",
                                   display: "flex",
+                                  boxShadow: "0px 3px 6px #808080",
                                 }}
                               >
                                 <p style={{ textAlign: "center" }}>
@@ -300,6 +302,7 @@ function App() {
                                   width: "10rem",
                                   alignItems: "center",
                                   display: "flex",
+                                  boxShadow: "0px 3px 6px #808080",
                                 }}
                               >
                                 <p style={{ textAlign: "center" }}>CFL - 12W</p>
@@ -368,6 +371,7 @@ function App() {
                                   width: "10rem",
                                   alignItems: "center",
                                   display: "flex",
+                                  boxShadow: "0px 3px 6px #808080",
                                 }}
                               >
                                 <p style={{ textAlign: "center" }}>
@@ -440,7 +444,7 @@ function App() {
                         <Col md={2} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center" }}
+                              style={{ width: "10rem", alignItems: "center",boxShadow: "0px 3px 6px #808080", }}
                             >
                               <p style={{ textAlign: "center" }}>
                                 Ceiling Fan - 75W
@@ -456,6 +460,7 @@ function App() {
                                   display: "flex",
                                   justifyContent: "center",
                                   textAlign: "center",
+                                  
                                 }}
                               >
                                 <button
@@ -507,13 +512,13 @@ function App() {
                         <Col md={2} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center" }}
+                              style={{ width: "10rem", alignItems: "center",boxShadow: "0px 3px 6px #808080", }}
                             >
                               <p style={{ textAlign: "center" }}>AC - 1500W</p>
                               <img
                                 src={LED}
                                 alt="LedBulb"
-                                style={{ width: "56px", height: "96px" }}
+                                style={{ width: "56px", height: "96px" , }}
                               />
                               <br />
                               <div
@@ -575,7 +580,7 @@ function App() {
                         <Col md={2} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center" }}
+                              style={{ width: "10rem", alignItems: "center", boxShadow: "0px 3px 6px #808080", }}
                             >
                               <p style={{ textAlign: "center" }}>
                                 Refrigirator - 150W
@@ -641,7 +646,7 @@ function App() {
                         <Col md={2} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center" }}
+                              style={{ width: "10rem", alignItems: "center" , boxShadow: "0px 3px 6px #808080",}}
                             >
                               <p style={{ textAlign: "center" }}>
                                 Microwave - 800W
@@ -707,7 +712,7 @@ function App() {
                         <Col md={6} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center" }}
+                              style={{ width: "10rem", alignItems: "center" , boxShadow: "0px 3px 6px #808080",}}
                             >
                               <p style={{ textAlign: "center" }}>TV - 50W</p>
                               <img
@@ -828,8 +833,73 @@ function App() {
     );
   }
 
-  function Payment() {
-    return <h2>Payment information</h2>;
+  function Solution() {
+    return (
+      <div>
+        <br></br>
+        <Row>
+          <Col md={6}>
+            <h4 style={{color: 'red'}}>Generated Solution</h4>
+          </Col>
+          <Col md={6}>
+            <h4 style={{color: 'red', display:'flex', flexDirection: 'row-reverse'}}>Share this Report</h4>
+          </Col>
+        </Row>
+        <Card style={{borderRadius:'0'}}>
+          <Row>
+            <Col md={4}>
+                <div>
+                  <Chart type="pie" width={500} height={500} series={[count*8,count1*12,count2*43,count3*75,count4*1500,count5*150,count6*800,count7*50]} options={{
+                        title:{ text:""
+                        } , 
+                       noData:{text:"Empty Data"},}}></Chart>
+                </div>
+            </Col>
+            <Col md={4}>
+              <br></br>
+              <h5>Total Load: &nbsp;
+                    <b>
+                    {count * 8 +
+                      count1 * 12 +
+                      count2 * 43 +
+                      count3 * 75 +
+                      count4 * 1500 +
+                      count5 * 150 +
+                      count6 * 800 +
+                      count7 * 50}{" "}
+                    Watts
+                    </b>
+                    </h5>
+              <br></br><br></br><br></br>
+                <h5>Total Energy Demand<br></br>
+                <b>5646 Wh</b>
+                </h5>                
+              <br></br>
+              
+                <h5>Recommended PV Configuration
+                  <br></br>
+                  <b>546</b>
+                </h5>
+              <br></br>
+              
+                <h5>Estimated Area required for PV array
+                  <br></br>
+                  <b> m2</b>
+                </h5>
+              <br></br><br></br>
+            </Col>
+            <Col md={4}>
+              <h5 style={{paddingTop:'145px'}}>Recommended PCS Model<br/>
+              <b>Exide 3.5kVA 48V MPPT PCS</b>
+              </h5>
+                <h5 style={{paddingTop:'25px'}}>Recommended Battery Configuration<br/>
+                <b>5646 Wh</b>
+                </h5>
+            </Col>
+          </Row>
+        </Card>
+      </div>
+    );
   }
 
   const [activeStep, setActiveStep] = useState(0);
@@ -839,7 +909,7 @@ function App() {
       case 0:
         return <Calculate />;
       case 1:
-        return <Payment />;
+        return <Solution />;
       default:
         return null;
     }
@@ -851,8 +921,12 @@ function App() {
       style: { fontWeight: "bold" },
       onClick: () => setActiveStep(0),
     },
-    { title: "Solution", onClick: () => setActiveStep(2) },
+    { title: "Solution", onClick: () => setActiveStep(1) },
   ];
+
+  // const navigate = useNavigate();
+  // const handleClick = () => navigate('./components/myComponent/myComponent');
+  
 
   return (
     <div>
@@ -1010,7 +1084,7 @@ function App() {
         <h2>
           <font color="red">Solutions</font>
         </h2>
-        <h1>Calculate Load</h1>
+        <h1 style={{color:'#5d5d5d'}}>Calculate Load</h1><br></br>
         <p>
           Using power load calculator, you can decide to choose the best
           inverter battery for your home, hospital, shop, factory, school, etc.
@@ -1024,9 +1098,9 @@ function App() {
         <br></br>
         <br></br>
         <br></br>
-        <div className="cid">
+        <div>
           <Stepper steps={steps} activeStep={activeStep} />
-          <div style={{ padding: "20px" }}>
+          <div style={{ padding: '20px' }}>
             {getSectionComponent()}
 
             {activeStep !== steps.length - 1 && (
@@ -1068,16 +1142,16 @@ function App() {
             href="https://react-bootstrap.netlify.app/docs/components/images/"
             className="nike"
           >
-            <img src={facebook} alt="Facebook" />
+            <img src={facebook} alt="Facebook" style={{paddingTop: '10px'}} />
           </a>
           <a href="twitter.com">
-            <img src={twitter} alt="Twitter" />
+            <img src={twitter} alt="Twitter"  style={{paddingTop: '10px'}}/>
           </a>
           <a href="instagram.com" className="nike">
-            <img src={instagram} alt="Instagram" />
+            <img src={instagram} alt="Instagram" style={{paddingTop: '10px'}} />
           </a>
           <a href="youtube.com">
-            <img src={youtube} alt="Youtube" />
+            <img src={youtube} alt="Youtube" style={{paddingTop: '10px'}} />
           </a>
         </div>
 
