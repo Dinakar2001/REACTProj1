@@ -107,15 +107,15 @@ function App() {
     } else setCount7(0);
   };
 
-  // const [count8, setCount8] = useState(0);
-  // const increment8 = () =>{
-  //   setCount8(count8 + 1)
-  // }
-  // const decrement8 = () =>{
-  //   if(count8>0){
-  //   setCount8(count8 - 1)
-  // } else setCount8(0);
-  // };
+  const [count8, setCount8] = useState(0);
+  const increment8 = () => {
+    setCount8(count8 + 1);
+  };
+  const decrement8 = () => {
+    if (count8 > 0) {
+      setCount8(count8 - 1);
+    } else setCount8(0);
+  };
 
   const Reset = () => {
     setCount(0);
@@ -126,6 +126,99 @@ function App() {
     setCount5(0);
     setCount6(0);
     setCount7(0);
+  };
+
+  const Value = () => {
+    return (
+      <Col md={2} style={{ display: "flex" }}>
+        <div>
+          <Card
+            style={{
+              width: "10rem",
+              alignItems: "center",
+              boxShadow: "0px 3px 6px #808080",
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              border: "10px solid lime",
+              zIndex: "9999",
+            }}
+          >
+            <p style={{ textAlign: "center" }}>Appliance</p>
+            <img
+              src={LED}
+              alt="LedBulb"
+              style={{ width: "56px", height: "96px" }}
+            />
+            <br />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <button
+                type="rounded-button"
+                onClick={decrement8}
+                style={{
+                  borderRadius: "50%",
+                  justifyContent: "center !important",
+                  textAlign: "center !important",
+                  border: "1px solid ",
+                }}
+              >
+                <img src={minus} alt="decrease" />
+              </button>
+              <h6
+                style={{
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                }}
+              >
+                {count8}
+              </h6>
+              <button
+                type="rounded-button"
+                onClick={increment8}
+                style={{
+                  borderRadius: "50%",
+                  justifyContent: "center !important",
+                  textAlign: "center !important",
+                  border: "1px solid",
+                }}
+              >
+                <img src={plus} alt="increase" />
+              </button>
+            </div>
+          </Card>
+          <p
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            {count8} Watts
+          </p>
+        </div>
+        <Row>
+          <Col md={12}>
+            <input
+              className="viol"
+              placeholder="Enter Appliance Name"
+              style={{ height: "48px", width: "186px" }}
+            />
+          </Col>
+          <br></br>
+          <Col md={12}>
+            <input
+              className="viol1"
+              placeholder="Wattage of Appliance"
+              style={{ height: "48px", width: "186px" }}
+            />
+          </Col>
+        </Row>
+      </Col>
+    );
   };
 
   function Calculate() {
@@ -173,17 +266,29 @@ function App() {
                 <Tab.Container defaultActiveKey="Light">
                   <Nav fill variant="pills" className="dip">
                     <Nav.Item>
-                      <Nav.Link className="bar" eventKey="Light">
+                      <Nav.Link
+                        className="bar"
+                        eventKey="Light"
+                        style={{ color: "#5d5d5d" }}
+                      >
                         Lights
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link className="bar" eventKey="Fan">
+                      <Nav.Link
+                        className="bar"
+                        eventKey="Fan"
+                        style={{ color: "#5d5d5d" }}
+                      >
                         Fan
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link className="bar" eventKey="HomeAppliance">
+                      <Nav.Link
+                        className="bar"
+                        eventKey="HomeAppliance"
+                        style={{ color: "#5d5d5d" }}
+                      >
                         Home Appliances
                       </Nav.Link>
                     </Nav.Item>
@@ -201,7 +306,7 @@ function App() {
                       <Nav.Link
                         className="bar"
                         eventKey="OtherAppliance"
-                        disabled
+                        style={{ color: "#5d5d5d" }}
                       >
                         Other Appliances
                       </Nav.Link>
@@ -444,7 +549,11 @@ function App() {
                         <Col md={2} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center",boxShadow: "0px 3px 6px #808080", }}
+                              style={{
+                                width: "10rem",
+                                alignItems: "center",
+                                boxShadow: "0px 3px 6px #808080",
+                              }}
                             >
                               <p style={{ textAlign: "center" }}>
                                 Ceiling Fan - 75W
@@ -460,7 +569,6 @@ function App() {
                                   display: "flex",
                                   justifyContent: "center",
                                   textAlign: "center",
-                                  
                                 }}
                               >
                                 <button
@@ -512,13 +620,17 @@ function App() {
                         <Col md={2} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center",boxShadow: "0px 3px 6px #808080", }}
+                              style={{
+                                width: "10rem",
+                                alignItems: "center",
+                                boxShadow: "0px 3px 6px #808080",
+                              }}
                             >
                               <p style={{ textAlign: "center" }}>AC - 1500W</p>
                               <img
                                 src={LED}
                                 alt="LedBulb"
-                                style={{ width: "56px", height: "96px" , }}
+                                style={{ width: "56px", height: "96px" }}
                               />
                               <br />
                               <div
@@ -580,7 +692,11 @@ function App() {
                         <Col md={2} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center", boxShadow: "0px 3px 6px #808080", }}
+                              style={{
+                                width: "10rem",
+                                alignItems: "center",
+                                boxShadow: "0px 3px 6px #808080",
+                              }}
                             >
                               <p style={{ textAlign: "center" }}>
                                 Refrigirator - 150W
@@ -646,7 +762,11 @@ function App() {
                         <Col md={2} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center" , boxShadow: "0px 3px 6px #808080",}}
+                              style={{
+                                width: "10rem",
+                                alignItems: "center",
+                                boxShadow: "0px 3px 6px #808080",
+                              }}
                             >
                               <p style={{ textAlign: "center" }}>
                                 Microwave - 800W
@@ -712,7 +832,11 @@ function App() {
                         <Col md={6} style={{ display: "flex" }}>
                           <div>
                             <Card
-                              style={{ width: "10rem", alignItems: "center" , boxShadow: "0px 3px 6px #808080",}}
+                              style={{
+                                width: "10rem",
+                                alignItems: "center",
+                                boxShadow: "0px 3px 6px #808080",
+                              }}
                             >
                               <p style={{ textAlign: "center" }}>TV - 50W</p>
                               <img
@@ -771,6 +895,110 @@ function App() {
                               {count7 * 50} Watts
                             </p>
                           </div>
+                        </Col>
+                      </Row>
+                    </Tab.Pane>
+
+                    <Tab.Pane eventKey="OtherAppliance">
+                      <Row>
+                        <button
+                          style={{
+                            display: "flex",
+                            flexDirection: "row-reverse",
+                            textDecoration: "none",
+                            color: "red",
+                            background: "transparent",
+                            border: "0px solid white",
+                            fontSize: "26px",
+                            paddingRight: "125px",
+                          }}
+                          onClick={Value}
+                        >
+                          Add Another Appliance
+                        </button>
+                        <Col md={2} style={{ display: "flex" }}>
+                          <div>
+                            <Card
+                              style={{
+                                width: "10rem",
+                                alignItems: "center",
+                                boxShadow: "0px 3px 6px #808080",
+                              }}
+                            >
+                              <p style={{ textAlign: "center" }}>Appliance</p>
+                              <img
+                                src={LED}
+                                alt="LedBulb"
+                                style={{ width: "56px", height: "96px" }}
+                              />
+                              <br />
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  textAlign: "center",
+                                }}
+                              >
+                                <button
+                                  type="rounded-button"
+                                  onClick={decrement8}
+                                  style={{
+                                    borderRadius: "50%",
+                                    justifyContent: "center !important",
+                                    textAlign: "center !important",
+                                    border: "1px solid ",
+                                  }}
+                                >
+                                  <img src={minus} alt="decrease" />
+                                </button>
+                                <h6
+                                  style={{
+                                    paddingLeft: "10px",
+                                    paddingRight: "10px",
+                                  }}
+                                >
+                                  {count8}
+                                </h6>
+                                <button
+                                  type="rounded-button"
+                                  onClick={increment8}
+                                  style={{
+                                    borderRadius: "50%",
+                                    justifyContent: "center !important",
+                                    textAlign: "center !important",
+                                    border: "1px solid",
+                                  }}
+                                >
+                                  <img src={plus} alt="increase" />
+                                </button>
+                              </div>
+                            </Card>
+                            <p
+                              style={{
+                                textAlign: "center",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              {count8} Watts
+                            </p>
+                          </div>
+                          <Row>
+                            <Col>
+                              <input
+                                className="viol"
+                                placeholder="Enter Appliance Name"
+                                style={{ height: "48px", width: "186px" }}
+                              />
+                            </Col>
+                            <br></br>
+                            <Col>
+                              <input
+                                className="viol1"
+                                placeholder="Wattage of Appliance"
+                                style={{ height: "48px", width: "186px" }}
+                              />
+                            </Col>
+                          </Row>
                         </Col>
                       </Row>
                     </Tab.Pane>
@@ -839,62 +1067,102 @@ function App() {
         <br></br>
         <Row>
           <Col md={6}>
-            <h4 style={{color: 'red'}}>Generated Solution</h4>
+            <h4 style={{ color: "red" }}>Generated Solution</h4>
           </Col>
           <Col md={6}>
-            <h4 style={{color: 'red', display:'flex', flexDirection: 'row-reverse'}}>Share this Report</h4>
+            <h4
+              style={{
+                color: "red",
+                display: "flex",
+                flexDirection: "row-reverse",
+              }}
+            >
+              Share this Report
+            </h4>
           </Col>
         </Row>
-        <Card style={{borderRadius:'0'}}>
+        <Card style={{ borderRadius: "0" }}>
           <Row>
             <Col md={4}>
-                <div>
-                  <Chart type="pie" width={500} height={500} series={[count*8,count1*12,count2*43,count3*75,count4*1500,count5*150,count6*800,count7*50]} options={{
-                        title:{ text:""
-                        } , 
-                       noData:{text:"Empty Data"},}}></Chart>
-                </div>
+              <div>
+                <Chart
+                  type="pie"
+                  series={[
+                    count * 8,
+                    count1 * 12,
+                    count2 * 43,
+                    count3 * 75,
+                    count4 * 1500,
+                    count5 * 150,
+                    count6 * 800,
+                    count7 * 50,
+                  ]}
+                  options={{
+                    labels: [
+                      "LED",
+                      "CFL",
+                      "Tube Light",
+                      "Ceiling Fan",
+                      "AC",
+                      "Refrigirator",
+                      "Microwave",
+                      "TV",
+                    ],
+                  }}
+                ></Chart>
+              </div>
             </Col>
             <Col md={4}>
               <br></br>
-              <h5>Total Load: &nbsp;
-                    <b>
-                    {count * 8 +
-                      count1 * 12 +
-                      count2 * 43 +
-                      count3 * 75 +
-                      count4 * 1500 +
-                      count5 * 150 +
-                      count6 * 800 +
-                      count7 * 50}{" "}
-                    Watts
-                    </b>
-                    </h5>
-              <br></br><br></br><br></br>
-                <h5>Total Energy Demand<br></br>
-                <b>5646 Wh</b>
-                </h5>                
-              <br></br>
-              
-                <h5>Recommended PV Configuration
-                  <br></br>
-                  <b>546</b>
-                </h5>
-              <br></br>
-              
-                <h5>Estimated Area required for PV array
-                  <br></br>
-                  <b> m2</b>
-                </h5>
-              <br></br><br></br>
-            </Col>
-            <Col md={4}>
-              <h5 style={{paddingTop:'145px'}}>Recommended PCS Model<br/>
-              <b>Exide 3.5kVA 48V MPPT PCS</b>
+              <h5>
+                Total Load: &nbsp;
+                <b>
+                  {count * 8 +
+                    count1 * 12 +
+                    count2 * 43 +
+                    count3 * 75 +
+                    count4 * 1500 +
+                    count5 * 150 +
+                    count6 * 800 +
+                    count7 * 50}{" "}
+                  Watts
+                </b>
               </h5>
-                <h5 style={{paddingTop:'25px'}}>Recommended Battery Configuration<br/>
+              <br></br>
+              <br></br>
+              <br></br>
+              <h5>
+                Total Energy Demand<br></br>
                 <b>5646 Wh</b>
-                </h5>
+              </h5>
+              <br></br>
+
+              <h5>
+                Recommended PV Configuration
+                <br></br>
+                <b>546</b>
+              </h5>
+              <br></br>
+
+              <h5>
+                Estimated Area required for PV array
+                <br></br>
+                <b> m2</b>
+              </h5>
+              <br></br>
+              <br></br>
+            </Col>
+            <Col md={4}>
+              <h5 style={{ paddingTop: "145px" }}>
+                Recommended PCS Model
+                <br />
+                <b>Exide 3.5kVA 48V MPPT PCS</b>
+              </h5>
+              <h5 style={{ paddingTop: "25px" }}>
+                Recommended Battery Configuration
+                <br />
+                <b>5646 Wh</b>
+              </h5>
             </Col>
           </Row>
         </Card>
@@ -926,7 +1194,6 @@ function App() {
 
   // const navigate = useNavigate();
   // const handleClick = () => navigate('./components/myComponent/myComponent');
-  
 
   return (
     <div>
@@ -1084,7 +1351,8 @@ function App() {
         <h2>
           <font color="red">Solutions</font>
         </h2>
-        <h1 style={{color:'#5d5d5d'}}>Calculate Load</h1><br></br>
+        <h1 style={{ color: "#5d5d5d" }}>Calculate Load</h1>
+        <br></br>
         <p>
           Using power load calculator, you can decide to choose the best
           inverter battery for your home, hospital, shop, factory, school, etc.
@@ -1100,7 +1368,7 @@ function App() {
         <br></br>
         <div>
           <Stepper steps={steps} activeStep={activeStep} />
-          <div style={{ padding: '20px' }}>
+          <div style={{ padding: "20px" }}>
             {getSectionComponent()}
 
             {activeStep !== steps.length - 1 && (
@@ -1142,16 +1410,20 @@ function App() {
             href="https://react-bootstrap.netlify.app/docs/components/images/"
             className="nike"
           >
-            <img src={facebook} alt="Facebook" style={{paddingTop: '10px'}} />
+            <img src={facebook} alt="Facebook" style={{ paddingTop: "10px" }} />
           </a>
           <a href="twitter.com">
-            <img src={twitter} alt="Twitter"  style={{paddingTop: '10px'}}/>
+            <img src={twitter} alt="Twitter" style={{ paddingTop: "10px" }} />
           </a>
           <a href="instagram.com" className="nike">
-            <img src={instagram} alt="Instagram" style={{paddingTop: '10px'}} />
+            <img
+              src={instagram}
+              alt="Instagram"
+              style={{ paddingTop: "10px" }}
+            />
           </a>
           <a href="youtube.com">
-            <img src={youtube} alt="Youtube" style={{paddingTop: '10px'}} />
+            <img src={youtube} alt="Youtube" style={{ paddingTop: "10px" }} />
           </a>
         </div>
 
