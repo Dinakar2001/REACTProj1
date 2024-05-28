@@ -11,13 +11,17 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import About from "./components/About";
 import Card from "react-bootstrap/Card";
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import Tab from "react-bootstrap/Tab";
 import minus from "./assets/image/minus.png";
 import plus from "./assets/image/plus.png";
 import LED from "./assets/image/LED.png";
 import Stepper from "react-stepper-horizontal";
 import Chart from "react-apexcharts";
+// import ProjectData from "./Projectdata";
+import Select from 'react-select';
+import axios from 'axios';
+
 
 function App() {
   const [show, setShow] = useState(false);
@@ -127,8 +131,34 @@ function App() {
     setCount6(0);
     setCount7(0);
   };
+   
+  // const data = ProjectData();
+
+  const [selectOptions, setSelectOptions] = useState([]);
+
+  const getOptions = async () => {
+    try {
+      const res = await axios.get('http://localhost:8080/project/get/');
+      const data = res.data;
+      const options = data.map(d => ({
+        value: d.id,
+        label: d.inverter
+      }));
+      setSelectOptions(options);
+    } catch (error) {
+      console.error('Error fetching data', error);
+    }
+  };
+
+  useEffect(() => {
+    getOptions();
+  }, []);
+  
 
   const Value = () => {
+
+    
+
     return (
       <Col md={2} style={{ display: "flex" }}>
         <div>
@@ -1035,23 +1065,9 @@ function App() {
             <br></br>
             <br></br>
             <Form.Label>Select Inverter Type</Form.Label>
-            <ul className="nav nav-pills">
-              <li className="active">
-                <a className="space" href="/">
-                  Option 1
-                </a>
-              </li>
-              <li>
-                <a className="space" href="/">
-                  Option 2
-                </a>
-              </li>
-              <li>
-                <a className="space" href="/">
-                  Option 3
-                </a>
-              </li>
-            </ul>
+            <div>
+              <Select options={selectOptions} />
+            </div>
           </Col>
         </Row>
         <br></br>
