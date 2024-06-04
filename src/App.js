@@ -135,6 +135,7 @@ function App() {
   // const data = ProjectData();
 
   const [selectOptions, setSelectOptions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const getOptions = async () => {
     try {
@@ -153,6 +154,45 @@ function App() {
   useEffect(() => {
     getOptions();
   }, []);
+
+
+  const handlePostData = async () => {
+    try {
+      const payload = {
+        id: selectedOption.value,
+        total_Wattage:count * 8 + count1 * 12 + count2 * 43 + count3 * 75 + count4 * 1500 + count5 * 150 + count6 * 800 + count7 * 50,
+        inverter: selectedOption.label,
+        hours:formValues.hours,
+        location:formValues.location,
+        solarpv:formValues.solarpv
+      };
+      const response = await axios.post('http://192.168.1.166:8080/project/post/', payload);
+      console.log('Data posted successfully', response.data);
+    } catch (error) {
+      console.error('Error posting data', error);
+    }
+  };
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handlePostData();
+    setActiveStep(activeStep + 1)
+  };
+
+  const[formValues,setFormValues]=useState({
+    hours:'',
+    location:'',
+    solarpv:''
+  });
+
+  const handleChange = (event) => {
+    const{name,value}=event.target;
+    setFormValues({
+      ...formValues,
+      [name]:value
+    });
+  }
   
 
   const Value = () => {
@@ -257,7 +297,7 @@ function App() {
         <Row>
           <Col md={5}>
             <Form.Label>Enter Total Load (In Watts)</Form.Label>
-            <Form.Control placeholder="Enter the Value or Calculate via Estimation Tool" />
+            <Form.Control placeholder="Enter the Value or Calculate via Estimation Tool"  value={count * 8 + count1 * 12 + count2 * 43 + count3 * 75 + count4 * 1500 + count5 * 150 + count6 * 800 + count7 * 50} Watts/>
           </Col>
           <Col md={2} className="kg">
             OR
@@ -1042,14 +1082,14 @@ function App() {
             <br></br>
             <br></br>
             <Form.Label>Enter Load Duration (In Hours)</Form.Label>
-            <Form.Control placeholder="Enter the value" />
+            <Form.Control name='hours' placeholder="Enter the value" value={formValues.hours} onChange={handleChange}  />
           </Col>
           <Col md={2}></Col>
           <Col md={5}>
             <br></br>
             <br></br>
             <Form.Label>Select Project Location</Form.Label>
-            <Form.Control placeholder="Enter Project Location" />
+            <Form.Control name='location' placeholder="Enter Project Location" value={formValues.location} onChange={handleChange}/>
           </Col>
           <Col md={12}>
             <br></br>
@@ -1058,7 +1098,7 @@ function App() {
             <br></br>
             <br></br>
             <Form.Label>Dependency on Solar PV</Form.Label>
-            <Form.Control placeholder="Enter the Value" />
+            <Form.Control name='solarpv' placeholder="Enter the Value" value={formValues.solarpv} onChange={handleChange} />
           </Col>
           <Col md={2}></Col>
           <Col md={5}>
@@ -1066,7 +1106,7 @@ function App() {
             <br></br>
             <Form.Label>Select Inverter Type</Form.Label>
             <div>
-              <Select options={selectOptions} />
+              <Select options={selectOptions}  value={selectedOption}  onChange={setSelectedOption} />
             </div>
           </Col>
         </Row>
@@ -1390,7 +1430,8 @@ function App() {
             {activeStep !== steps.length - 1 && (
               <button
                 className="btn9"
-                onClick={() => setActiveStep(activeStep + 1)}
+                // onClick={() => setActiveStep(activeStep + 1)}
+                onClick={ handleSubmit}
               >
                 Calculate
               </button>
