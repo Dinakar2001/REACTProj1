@@ -195,6 +195,8 @@ function App() {
   }
   
 
+  const [key, setKey] = useState('Light');
+
   const Value = () => {
 
     
@@ -333,7 +335,7 @@ function App() {
                 </Row>
                 <br></br>
                 <br></br>
-                <Tab.Container defaultActiveKey="Light">
+                <Tab.Container defaultActiveKey={key} onSelect={(k) => setKey(k)}>
                   <Nav fill variant="pills" className="dip">
                     <Nav.Item>
                       <Nav.Link
