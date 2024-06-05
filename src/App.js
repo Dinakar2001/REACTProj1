@@ -18,7 +18,6 @@ import plus from "./assets/image/plus.png";
 import LED from "./assets/image/LED.png";
 import Stepper from "react-stepper-horizontal";
 import Chart from "react-apexcharts";
-// import ProjectData from "./Projectdata";
 import Select from 'react-select';
 import axios from 'axios';
 
@@ -132,8 +131,6 @@ function App() {
     setCount7(0);
   };
    
-  // const data = ProjectData();
-
   const [selectOptions, setSelectOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -1250,9 +1247,6 @@ function App() {
     { title: "Solution", onClick: () => setActiveStep(1) },
   ];
 
-  // const navigate = useNavigate();
-  // const handleClick = () => navigate('./components/myComponent/myComponent');
-
   return (
     <div>
       <Navbar bg="transparent" className="exd" expand="lg">
@@ -1432,7 +1426,6 @@ function App() {
             {activeStep !== steps.length - 1 && (
               <button
                 className="btn9"
-                // onClick={() => setActiveStep(activeStep + 1)}
                 onClick={ handleSubmit}
               >
                 Calculate
