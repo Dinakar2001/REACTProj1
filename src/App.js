@@ -11,16 +11,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import About from "./components/About";
 import Card from "react-bootstrap/Card";
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Tab from "react-bootstrap/Tab";
 import minus from "./assets/image/minus.png";
 import plus from "./assets/image/plus.png";
 import LED from "./assets/image/LED.png";
 import Stepper from "react-stepper-horizontal";
 import Chart from "react-apexcharts";
-import Select from 'react-select';
-import axios from 'axios';
-
+import Select from "react-select";
+import axios from "axios";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -130,21 +129,21 @@ function App() {
     setCount6(0);
     setCount7(0);
   };
-   
+
   const [selectOptions, setSelectOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
 
   const getOptions = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/project/get/');
+      const res = await axios.get("http://localhost:8080/project/get/");
       const data = res.data;
-      const options = data.map(d => ({
+      const options = data.map((d) => ({
         value: d.id,
-        label: d.inverter
+        label: d.inverter,
       }));
       setSelectOptions(options);
     } catch (error) {
-      console.error('Error fetching data', error);
+      console.error("Error fetching data", error);
     }
   };
 
@@ -152,52 +151,57 @@ function App() {
     getOptions();
   }, []);
 
-
   const handlePostData = async () => {
     try {
       const payload = {
         id: selectedOption.value,
-        total_Wattage:count * 8 + count1 * 12 + count2 * 43 + count3 * 75 + count4 * 1500 + count5 * 150 + count6 * 800 + count7 * 50,
+        total_Wattage:
+          count * 8 +
+          count1 * 12 +
+          count2 * 43 +
+          count3 * 75 +
+          count4 * 1500 +
+          count5 * 150 +
+          count6 * 800 +
+          count7 * 50,
         inverter: selectedOption.label,
-        hours:formValues.hours,
-        location:formValues.location,
-        solarpv:formValues.solarpv
+        hours: formValues.hours,
+        location: formValues.location,
+        solarpv: formValues.solarpv,
       };
-      const response = await axios.post('http://192.168.1.166:8080/project/post/', payload);
-      console.log('Data posted successfully', response.data);
+      const response = await axios.post(
+        "http://192.168.1.166:8080/project/post/",
+        payload
+      );
+      console.log("Data posted successfully", response.data);
     } catch (error) {
-      console.error('Error posting data', error);
+      console.error("Error posting data", error);
     }
   };
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
     handlePostData();
-    setActiveStep(activeStep + 1)
+    setActiveStep(activeStep + 1);
   };
 
-  const[formValues,setFormValues]=useState({
-    hours:'',
-    location:'',
-    solarpv:''
+  const [formValues, setFormValues] = useState({
+    hours: "",
+    location: "",
+    solarpv: "",
   });
 
   const handleChange = (event) => {
-    const{name,value}=event.target;
+    const { name, value } = event.target;
     setFormValues({
       ...formValues,
-      [name]:value
+      [name]: value,
     });
-  }
-  
+  };
 
-  const [key, setKey] = useState('Light');
+  const [key, setKey] = useState("Light");
 
   const Value = () => {
-
-    
-
     return (
       <Col md={2} style={{ display: "flex" }}>
         <div>
@@ -296,7 +300,20 @@ function App() {
         <Row>
           <Col md={5}>
             <Form.Label>Enter Total Load (In Watts)</Form.Label>
-            <Form.Control placeholder="Enter the Value or Calculate via Estimation Tool"  value={count * 8 + count1 * 12 + count2 * 43 + count3 * 75 + count4 * 1500 + count5 * 150 + count6 * 800 + count7 * 50} Watts/>
+            <Form.Control
+              placeholder="Enter the Value or Calculate via Estimation Tool"
+              value={
+                count * 8 +
+                count1 * 12 +
+                count2 * 43 +
+                count3 * 75 +
+                count4 * 1500 +
+                count5 * 150 +
+                count6 * 800 +
+                count7 * 50
+              }
+              Watts
+            />
           </Col>
           <Col md={2} className="kg">
             OR
@@ -332,7 +349,10 @@ function App() {
                 </Row>
                 <br></br>
                 <br></br>
-                <Tab.Container defaultActiveKey={key} onSelect={(k) => setKey(k)}>
+                <Tab.Container
+                  defaultActiveKey={key}
+                  onSelect={(k) => setKey(k)}
+                >
                   <Nav fill variant="pills" className="dip">
                     <Nav.Item>
                       <Nav.Link
@@ -1081,14 +1101,24 @@ function App() {
             <br></br>
             <br></br>
             <Form.Label>Enter Load Duration (In Hours)</Form.Label>
-            <Form.Control name='hours' placeholder="Enter the value" value={formValues.hours} onChange={handleChange}  />
+            <Form.Control
+              name="hours"
+              placeholder="Enter the value"
+              value={formValues.hours}
+              onChange={handleChange}
+            />
           </Col>
           <Col md={2}></Col>
           <Col md={5}>
             <br></br>
             <br></br>
             <Form.Label>Select Project Location</Form.Label>
-            <Form.Control name='location' placeholder="Enter Project Location" value={formValues.location} onChange={handleChange}/>
+            <Form.Control
+              name="location"
+              placeholder="Enter Project Location"
+              value={formValues.location}
+              onChange={handleChange}
+            />
           </Col>
           <Col md={12}>
             <br></br>
@@ -1097,7 +1127,12 @@ function App() {
             <br></br>
             <br></br>
             <Form.Label>Dependency on Solar PV</Form.Label>
-            <Form.Control name='solarpv' placeholder="Enter the Value" value={formValues.solarpv} onChange={handleChange} />
+            <Form.Control
+              name="solarpv"
+              placeholder="Enter the Value"
+              value={formValues.solarpv}
+              onChange={handleChange}
+            />
           </Col>
           <Col md={2}></Col>
           <Col md={5}>
@@ -1105,7 +1140,11 @@ function App() {
             <br></br>
             <Form.Label>Select Inverter Type</Form.Label>
             <div>
-              <Select options={selectOptions}  value={selectedOption}  onChange={setSelectedOption} />
+              <Select
+                options={selectOptions}
+                value={selectedOption}
+                onChange={setSelectedOption}
+              />
             </div>
           </Col>
         </Row>
@@ -1424,10 +1463,7 @@ function App() {
             {getSectionComponent()}
 
             {activeStep !== steps.length - 1 && (
-              <button
-                className="btn9"
-                onClick={ handleSubmit}
-              >
+              <button className="btn9" onClick={handleSubmit}>
                 Calculate
               </button>
             )}
